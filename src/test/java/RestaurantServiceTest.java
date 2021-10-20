@@ -11,6 +11,7 @@ class RestaurantServiceTest {
     Restaurant restaurant;
     //REFACTOR ALL THE REPEATED LINES OF CODE
 
+
     @BeforeEach
     public void BeforeEach(){
 
@@ -19,6 +20,8 @@ class RestaurantServiceTest {
         restaurant = service.addRestaurant("Amelie's cafe","Chennai",openingTime,closingTime);
         restaurant.addToMenu("Sweet corn soup",119);
         restaurant.addToMenu("Vegetable lasagne", 269);
+
+        //System.out.println("BeforeEach");
 
     }
 
@@ -29,7 +32,6 @@ class RestaurantServiceTest {
         //WRITE UNIT TEST CASE HERE
 
         assertEquals( service.findRestaurantByName(restaurant.getName()) ,service.findRestaurantByName("Amelie's cafe"));
-
     }
 
     //You may watch the video by Muthukumaran on how to write exceptions in Course 3: Testing and Version control: Optional content
@@ -37,10 +39,10 @@ class RestaurantServiceTest {
     public void searching_for_non_existing_restaurant_should_throw_exception() throws restaurantNotFoundException {
         //WRITE UNIT TEST CASE HERE
 
+
         assertThrows(restaurantNotFoundException.class,()->{
             service.findRestaurantByName("Pantry d'or");
         });
-
     }
     //<<<<<<<<<<<<<<<<<<<<SEARCHING>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -51,6 +53,7 @@ class RestaurantServiceTest {
     @Test
     public void remove_restaurant_should_reduce_list_of_restaurants_size_by_1() throws restaurantNotFoundException {
 
+
         int initialNumberOfRestaurants = service.getRestaurants().size();
         service.removeRestaurant("Amelie's cafe");
         assertEquals(initialNumberOfRestaurants-1, service.getRestaurants().size());
@@ -58,6 +61,7 @@ class RestaurantServiceTest {
 
     @Test
     public void removing_restaurant_that_does_not_exist_should_throw_exception() throws restaurantNotFoundException {
+
 
         assertThrows(restaurantNotFoundException.class,()->service.removeRestaurant("Pantry d'or"));
     }
