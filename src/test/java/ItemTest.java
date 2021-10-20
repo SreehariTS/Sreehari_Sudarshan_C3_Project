@@ -24,7 +24,7 @@ public class ItemTest {
         restaurant.addToOrder("Coke");
 
 
-        assertEquals(278,restaurant.getOrderTotalValue());
+        assertEquals(238,restaurant.getOrderTotalValue());
 
 
 
