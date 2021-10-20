@@ -20,8 +20,8 @@ public class ItemTest {
         restaurant.addToMenu("Cheese Pizza",209);
 
         List<Item> order = new ArrayList<Item>();
-        restaurant.addToOrder("Cheese Pizza",209);
-        restaurant.addToOrder("Coke",29);
+        restaurant.addToOrder("Cheese Pizza");
+        restaurant.addToOrder("Coke");
 
 
         assertEquals(278,restaurant.getOrderTotalValue());
